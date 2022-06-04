@@ -1,0 +1,1 @@
+select issue.studentID,student.name,issue.bookID,book.name,issue.issueDate,issue.dueDate from student inner join book inner join issue where book.bookID=issue.bookID and select.studentID=issue.studentID and issue.returnBook='NO'
