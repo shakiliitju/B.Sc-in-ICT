@@ -1,0 +1,175 @@
+
+Problem 01: To take user name and marks of three
+subjects asinput using java.util.Scanner and 
+System.in and calculate average marks. 
+
+.........
+
+import java.util.Scanner;
+
+public class InputAverage {
+
+	    public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.print("Enter Name");
+	    String name=sc.nextLine();
+	    System.out.print("Enter Three numbers");
+	    int marks1=sc.nextInt();
+	    int marks2=sc.nextInt();
+	    int marks3=sc.nextInt();
+	    double average=(marks1+marks2+marks3)/3.0;
+	    System.out.println("Your name:"+name);
+	    System.out.println("Average"+average);    
+	    }   
+	}
+
+Output:
+Enter NameJesmin
+Enter Three numbers
+40
+30
+20
+Your name:Jesmin
+
+Average30.0
+
+
+
+
+
+Problem 02:To take user name and marks of ten subjects as input using java.util.Scanner and System.in and 
+calculate average marks. (using Array)
+
+import java.util.Scanner;
+
+public class InputAverageArray {
+	
+	    public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int num[]=new int[10];
+	    int  i;
+	    int sum=0;
+	    System.out.println("Enter Name");
+	    String name=sc.nextLine();
+	    System.out.print("Enter numbers");
+	    for(i=0;i<num.length;i++)
+	    {
+	       num[i]=sc.nextInt();
+	        sum=sum+num[i];
+	    }
+	   
+	    double average=sum/10.0;
+	    System.out.println("Your name:"+name);
+	    System.out.println("Average"+average);
+	    }
+	    
+	}
+
+Output:
+Enter Name
+Jesmin
+Enter numbers60
+80
+60
+70
+80
+60
+80
+60
+80
+60
+Your name:Jesmin
+Average69.0
+
+
+Problem 03:Input values into a 2d array
+
+import java.util.Scanner;
+
+public class InputTwoDimen {
+
+	    public static void main(String[] args) {
+	     Scanner input=new Scanner(System.in);
+	        double a[][]=new double[3][3];
+	        for(int row=0;row<a.length;row++) {
+	            System.out.print("Enter a Value: ");
+	            for(int col=0;col<a[row].length;col++)
+	        {
+	            
+	            a[row][col]=input.nextDouble();
+	        }
+	        }
+	        
+	        System.out.println("The two dimention array: ");
+	        for(int row=0;row<a.length;row++) 
+	        {
+	           for(int col=0;col<a[row].length;col++)
+	           {
+	        	   	   System.out.print(a[row][col]);
+	        	   	   		System.out.print(" ");
+	           }
+	           	System.out.println();
+	    }
+	        
+	        
+	        
+	    }
+	    
+	}
+
+Output:
+
+Enter a Value: 3 4 5
+Enter a Value: 5 6 7
+Enter a Value: 8 9 0
+The two dimention array: 
+3.0 4.0 5.0 
+5.0 6.0 7.0 
+8.0 9.0 0.0 
+
+
+
+
+Problem 04: Input and storing Strings in two-dimensional arrays
+
+import java.util.Scanner;
+
+public class InputStorStringTwo {
+	
+	        public static void main(String[] args) {
+	        Scanner input=new Scanner(System.in);
+	        String[][] Criminals=new String[2][2];
+	        for(int row=0;row<Criminals.length;row++)
+	            for(int col=0;col<Criminals[row].length;col++)
+	        {
+	            System.out.print("Enter a Criminal name: ");
+	            Criminals[row][col]=input.nextLine();
+	        }
+	        
+	        System.out.println(" criminal List:");
+	        for (int row = 0; row <Criminals.length; row++){
+	        for (int col = 0; col <Criminals[row].length; col++){
+	            System.out.println("\t"+Criminals[row][col]);
+
+	        
+	        
+	    }
+	    
+	        }
+
+	        }
+}
+
+
+
+Output:
+
+Enter a Criminal name: Kamal Ahmed
+Enter a Criminal name: Jubayer
+Enter a Criminal name: Muktar miah
+Enter a Criminal name: Jamal Uddin
+ criminal List:
+	Kamal Ahmed
+	Jubayer
+	Muktar miah
+	Jamal Uddin
