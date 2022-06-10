@@ -1,0 +1,52 @@
+             // Jk
+           //1-> timer. 3,14->input
+           //4,2->5V 11->GND  
+           //12->led posi. 11->led neg
+           
+            //d
+	    // 1 4 14-> 5v
+            // 7 gnd, 3 clk.
+            // 5 e posi. 7 led neg
+            // 2  e input
+   
+ //timer: 6 and 7->brown, black,green-1M.
+ //nill capa: 6 e(p), gnd(n)
+ //org capa: 5(p), gnd(n)
+ //led-3(p),gnd(n)
+ //1k resistor->orange(7-8)
+ // 1->gnd.
+ // 2+6 connected with wire.
+ // 4,8-> voltage in er line.
+ // opor er gnd and nicher gnd connected.
+ // batery er positive-> voltage in er line
+ // batery er neg-> gnd. 
+
+//for d1 and d2(jhonson e last flip flop er output Q' theke prothom 
+ff er input e and ring e last ff er output Q theke prothom er input e)
+1,4->5V
+2-
+3-clk
+7-gnd
+5 er output faka and led
+//for d3 and d4.
+14,13,10-> 5V
+12-
+11-clk
+9-led and faka
+
+
+MOD 16 up counter:
+##for 1st ic:
+1-clk.
+2,3,4,6,7,10,14->5V
+11-gnd.
+5+12.
+9,12-> led.
+##for 2nd ic:
+1st tar 9 num pin theke 2nd tar 1 num pin e.
+2,3,4,6,7,10,14->5V
+11-gnd.
+5+12.
+9,12-> led.
+
+

@@ -1,0 +1,75 @@
+Data keno signal e convert korte hoy
+
+
+
+Periodic ar nonperiodic signal ki
+Periodic er shubidha
+Composite signal ki? Keno create kora lage
+
+Receiver end e ki kora hoy
+Signal kn lage,
+
+bit length,
+bit rate
+Tdm,
+tdm er kaj, 
+block coding,  
+error,
+data impairment kake bole ki ki, 
+CRC,(A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data.) 
+CRC er kaj, 
+
+error ki, koy type er ase, konta bhalo keno bhalo
+
+Oh digital e ki periodic use kora Jay??
+Multiplexing ki, 
+data encrypt kore kon layer, 
+snr ki, 
+Bit rate signal rate er difference
+
+Data j pathai ki ki bisoy er upor depend kore, 
+network measurement,
+latency ki,
+bit rate,bandwidth ki,same kina
+Osi model
+Tcp ip
+Tcp ip kno
+
+Attenuation ki
+Etar por kivabe abar ager signal pabo...
+Modulation ki.. 
+Phase ki...
+phase difference ki
+
+digital to digital koibhabe convert kora jai
+mam jitter diye suru korse
+Serial transmission koto prokar
+syntex,
+semantics
+Syntax r semantics... 
+
+Bit rate kisher upr depend kore...
+Shannon formula...
+Attenuation distortion... 
+Attenuation kivabe dur kora jay...
+Standard...
+standard er category... 
+Protocol... 
+Key elements of protocol... 
+Periodic non periodic signal...
+
+transmission er khetre konta use kori
+Hamming distance, kno use kora hoy- included
+Layer, 
+multiplexing, 
+multiplexing kno use kora hoy, 
+
+parity bit etc
+101 100 ekhane hamming distance 2 Cause 2 ta bit mile nai. 
+Min hamming distance ber kora hoy error ditection er jnno
+Min haming distance kno ber kora hoy
+Error detection
+Error ditection r error correction er mddhe konta easy
+Haming distance ki  Data to signal kon layer? 
+Error detect and correction er khutinati,
+distortion, 
