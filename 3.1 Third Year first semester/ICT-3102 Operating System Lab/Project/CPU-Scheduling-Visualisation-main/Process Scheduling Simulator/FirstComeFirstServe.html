@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="app.css" />
+        <link rel="stylesheet" href="indexcpu.css" />
+        <link rel="stylesheet" href="util.css" />
+        <link rel="stylesheet" href="menu.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>First Come First Serve </title>
+		<script src="js/jquery-3.1.0.min.js"></script>
+        
+		<script>
+
+        </script>
+
+	</head>
+	<body>
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <header id="header">
+            <nav class="links" style="--items: 5;">
+                <a href="FirstComeFirstServe.html">First Come First Serve (FCFS)</a>
+                <a href="ShortestJobFirst.html">Shortest Job First</a>
+                <a href="RoundRobin.html">Round Robin</a>
+                <a href="PriorityNonPreemptive.html">Priority Non-Preemptive</a>
+                <a href="PriorityPreemptive.html">Priority Preemptive</a>
+                <span class="line"></span>
+            </nav>
+        </header>
+        <br><br><br><br>
+        <h2>First Come, First Serve (FCFS)</h2>
+        <br><br>
+        <center>
+            <div class="table-wrapper">
+                <div class="limiter">
+                    <div class="container-table100">
+                        <div class="wrap-table100">
+                            <div class="table100">
+                                <table border="1" id="table" class="table">
+                                    <thead>
+                                        <tr class="table100-head">
+                                            <th class="column1">Process Name</th>
+                                            <th class="column2">Arrival Time</th>
+                                            <th class="column3">Burst Time</th>
+                                            <th class="column4">Turn-Around Time</th>
+                                            <th class="column5">Waiting Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="column1">P1</td>
+                                            <td class="column2"><input data-process="P1" type="text" class="arrival_time" /></td>
+                                            <td class="column3"><input data-process="P1" type="text" class="burst_time" /></td>
+                                            <td class="column4"><span class="TAT" id="P1_TAT"></span></td>
+                                            <td class="column5"><span class="WT" id="P1_WT"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="column1">P2</td>
+                                            <td class="column2"><input data-process="P2" type="text" class="arrival_time" /></td>
+                                            <td class="column3"><input data-process="P2" type="text" class="burst_time" /></td>
+                                            <td class="column4"><span class="TAT" id="P2_TAT"></span></td>
+                                            <td class="column5"><span class="WT" id="P2_WT"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="column1">P3</td>
+                                            <td class="column2"><input data-process="P3" type="text" class="arrival_time" /></td>
+                                            <td class="column3"><input data-process="P3" type="text" class="burst_time" /></td>
+                                            <td class="column4"><span class="TAT" id="P3_TAT"></span></td>
+                                            <td class="column5"><span class="WT" id="P3_WT"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="column1">P4</td>
+                                            <td class="column2"><input data-process="P4" type="text" class="arrival_time" /></td>
+                                            <td class="column3"><input data-process="P4" type="text" class="burst_time" /></td>
+                                            <td class="column4"><span class="TAT" id="P4_TAT"></span></td>
+                                            <td class="column5"><span class="WT" id="P4_WT"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">Average</td>
+                                            <td><span id="AVG_TAT"></span></td>
+                                            <td><span id="AVG_WT"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/><br/>
+                <button type="button" class="addBtn" onclick="addRow();">Add Row</button>
+                <br/><br/>
+                <div style="width: 95%">
+                    <div id="gantt_chart"></div>
+                </div>
+                <div style="clear: both;"></div>
+                <p id="cust_console" style="color:red;"></p>
+                <button id="INIT_COMPUTE">Compute</button>
+            </div>
+        </center>
+    </body>
+</html>
