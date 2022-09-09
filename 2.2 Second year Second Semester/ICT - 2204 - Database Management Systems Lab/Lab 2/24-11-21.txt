@@ -1,0 +1,314 @@
+
+mysql> use Nahid
+Database changed
+
+mysql> select *from Student;
++------+------+---------+------+
+| Id   | Name | Address | Dept |
++------+------+---------+------+
+|  103 | Asif | BBH     | Math |
++------+------+---------+------+
+1 row in set (0.42 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_nahid |
++-----------------+
+| employee        |
+| student         |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from Employee;
++------+-------+-------+------------+------------+
+| Id   | Name  | Shift | Phone      | Address    |
++------+-------+-------+------------+------------+
+| 1123 | Rahim | Night | 1954385484 | Vedergonj  |
+| 1124 | Latif | Day   | 1749475391 | Shariatpur |
++------+-------+-------+------------+------------+
+2 rows in set (0.13 sec)
+
+
+mysql> create table OrderN(Order_ID varchar(20), Cust_ID int(5),Order_date date ,ppurcharse_amount int (10),No_of_item int(10));
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> describe OrderN;
++-------------------+-------------+------+-----+---------+-------+
+| Field             | Type        | Null | Key | Default | Extra |
++-------------------+-------------+------+-----+---------+-------+
+| Order_ID          | varchar(20) | YES  |     | NULL    |       |
+| Cust_ID           | int(5)      | YES  |     | NULL    |       |
+| Order_date        | date        | YES  |     | NULL    |       |
+| ppurcharse_amount | int(10)     | YES  |     | NULL    |       |
+| No_of_item        | int(10)     | YES  |     | NULL    |       |
++-------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> create table OrderTable(Order_ID varchar(20), Cust_ID varchar(10),Order_date date ,ppurcharse_amount int (10),No_of_item int(10));
+Query OK, 0 rows affected (0.40 sec)
+
+mysql> describe OrderTable;
++-------------------+-------------+------+-----+---------+-------+
+| Field             | Type        | Null | Key | Default | Extra |
++-------------------+-------------+------+-----+---------+-------+
+| Order_ID          | varchar(20) | YES  |     | NULL    |       |
+| Cust_ID           | varchar(10) | YES  |     | NULL    |       |
+| Order_date        | date        | YES  |     | NULL    |       |
+| ppurcharse_amount | int(10)     | YES  |     | NULL    |       |
+| No_of_item        | int(10)     | YES  |     | NULL    |       |
++-------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
+mysql> insert into OrderTable values ("O-2","C-1","2018-12-01",3000,3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into OrderTable values ("O-1","C-2","2018-12-01",2000,4);
+Query OK, 1 row affected (0.00 sec)
+
+
+mysql> select count(*)from OrderTable;
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql> select sum(ppurcharse_amount) from OrderTable;
++------------------------+
+| sum(ppurcharse_amount) |
++------------------------+
+|                   5000 |
++------------------------+
+1 row in set (0.11 sec)
+
+mysql> select avg(ppurcharse_amount) from OrderTable;
++------------------------+
+| avg(ppurcharse_amount) |
++------------------------+
+|              2500.0000 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into OrderTable values ("O-3","C-2","2018-01-23",1700,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into OrderTable values ("O-4","C-2","2018-12-01",1700,9);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select Order_ID from OrderTable where ppurcharse_amount>(select avg(ppurcharse_amount) from OrderTable);
++----------+
+| Order_ID |
++----------+
+| O-2      |
++----------+
+1 row in set (0.13 sec)
+
+mysql> insert into OrderTable values ("O-5","C-3","2018-12-01",5000,12);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into OrderTable values ("O-6","C-4","2018-07-25",4000,6);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select Order_ID from OrderTable where ppurcharse_amount>(select avg(ppurcharse_amount) from OrderTable);
++----------+
+| Order_ID |
++----------+
+| O-2      |
+| O-5      |
+| O-6      |
++----------+
+3 rows in set (0.00 sec)
+
+mysql> describe OrderTable;
++-------------------+-------------+------+-----+---------+-------+
+| Field             | Type        | Null | Key | Default | Extra |
++-------------------+-------------+------+-----+---------+-------+
+| Order_ID          | varchar(20) | YES  |     | NULL    |       |
+| Cust_ID           | varchar(10) | YES  |     | NULL    |       |
+| Order_date        | date        | YES  |     | NULL    |       |
+| ppurcharse_amount | int(10)     | YES  |     | NULL    |       |
+| No_of_item        | int(10)     | YES  |     | NULL    |       |
++-------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select *from OrderTable;
++----------+---------+------------+-------------------+------------+
+| Order_ID | Cust_ID | Order_date | ppurcharse_amount | No_of_item |
++----------+---------+------------+-------------------+------------+
+| O-2      | C-1     | 2018-12-01 |              3000 |          3 |
+| O-1      | C-2     | 2018-12-01 |              2000 |          4 |
+| O-3      | C-2     | 2018-01-23 |              1700 |         10 |
+| O-4      | C-2     | 2018-12-01 |              1700 |          9 |
+| O-5      | C-3     | 2018-12-01 |              5000 |         12 |
+| O-6      | C-4     | 2018-07-25 |              4000 |          6 |
++----------+---------+------------+-------------------+------------+
+6 rows in set (0.00 sec)
+
+
+mysql> select Order_date, count(Order_ID) from OrderTable group by Order_date;
++------------+-----------------+
+| Order_date | count(Order_ID) |
++------------+-----------------+
+| 2018-01-23 |               1 |
+| 2018-07-25 |               1 |
+| 2018-12-01 |               4 |
++------------+-----------------+
+3 rows in set (0.36 sec)
+
+
+mysql> select Order_ID from OrderTable group by Order_date having  sum(ppurcharse_amount)>3000 ;
++----------+
+| Order_ID |
++----------+
+| O-6      |
+| O-2      |
++----------+
+2 rows in set (0.00 sec)
+
+
+mysql> select o.order_id,o.cust_id,c.cust_name
+    -> from Order_n AS o
+    -> join customers as c
+    -> on o.cust_id=c.cust_id;
++----------+---------+-----------+
+| order_id | cust_id | cust_name |
++----------+---------+-----------+
+| O-1      | C-1     | Badshah   |
+| O-2      | C-1     | Badshah   |
+| O-3      | C-2     | Ayesha    |
+| O-4      | C-2     | Ayesha    |
+| O-5      | C-3     | Robert    |
+| O-6      | C-4     | Darwin    |
++----------+---------+-----------+
+6 rows in set (0.46 sec)
+
+mysql> select cust_id, count(cust_id) from Order_n group by cust_id;
++---------+----------------+
+| cust_id | count(cust_id) |
++---------+----------------+
+| C-1     |              2 |
+| C-2     |              2 |
+| C-3     |              1 |
+| C-4     |              1 |
++---------+----------------+
+4 rows in set (0.03 sec)
+
+mysql> select max(purchase_amount) from order_n;
++----------------------+
+| max(purchase_amount) |
++----------------------+
+|                17000 |
++----------------------+
+1 row in set (0.02 sec)
+
+mysql> select min(purchase_amount) from order_n;
++----------------------+
+| min(purchase_amount) |
++----------------------+
+|                 2000 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select min(purchase_amount) from order_n where order_date = '2018-12-01';
++----------------------+
+| min(purchase_amount) |
++----------------------+
+|                 2000 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select max(purchase_amount) from order_n where order_date = '2018-12-01';
++----------------------+
+| max(purchase_amount) |
++----------------------+
+|                 5000 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select cust_id, count(cust_id) from Order_n group by cust_id;
++---------+----------------+
+| cust_id | count(cust_id) |
++---------+----------------+
+| C-1     |              2 |
+| C-2     |              2 |
+| C-3     |              1 |
+| C-4     |              1 |
++---------+----------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select Cust_id, Order_date , max(purchase_amount) from order_n group by cust_id,Order_date having max(purchase_amount);
++---------+------------+----------------------+
+| Cust_id | Order_date | max(purchase_amount) |
++---------+------------+----------------------+
+| C-1     | 2018-12-01 |                 3000 |
+| C-2     | 2018-01-23 |                17000 |
+| C-2     | 2018-12-01 |                 5000 |
+| C-3     | 2018-12-01 |                 5000 |
+| C-4     | 2018-07-25 |                 4000 |
++---------+------------+----------------------+
+5 rows in set (0.10 sec)
+
+mysql> select Cust_id, Order_date , max(purchase_amount) from order_n group by cust_id,Order_date having max(purchase_amount)>2000;
++---------+------------+----------------------+
+| Cust_id | Order_date | max(purchase_amount) |
++---------+------------+----------------------+
+| C-1     | 2018-12-01 |                 3000 |
+| C-2     | 2018-01-23 |                17000 |
+| C-2     | 2018-12-01 |                 5000 |
+| C-3     | 2018-12-01 |                 5000 |
+| C-4     | 2018-07-25 |                 4000 |
++---------+------------+----------------------+
+5 rows in set (0.00 sec)
+
+mysql> select cust_id, order_date , max(purchase_amount) from Order_n group by cust_id, Order_date having max(purchase_amount)>2000;
++---------+------------+----------------------+
+| cust_id | order_date | max(purchase_amount) |
++---------+------------+----------------------+
+| C-1     | 2018-12-01 |                 3000 |
+| C-2     | 2018-01-23 |                17000 |
+| C-2     | 2018-12-01 |                 5000 |
+| C-3     | 2018-12-01 |                 5000 |
+| C-4     | 2018-07-25 |                 4000 |
++---------+------------+----------------------+
+5 rows in set (0.00 sec)
+
+mysql> select cust_id, max(purchase_amount) from Order_n group by order_id having max(purchase_amount)>2000;
++---------+----------------------+
+| cust_id | max(purchase_amount) |
++---------+----------------------+
+| C-1     |                 3000 |
+| C-2     |                17000 |
+| C-2     |                 5000 |
+| C-3     |                 5000 |
+| C-4     |                 4000 |
++---------+----------------------+
+5 rows in set (0.00 sec)
+
+mysql> select cust_id, max(purchase_amount) from Order_n group by order_id having count(Order_id)>1;
+Empty set (0.00 sec)
+
+mysql> select cust_id, max(purchase_amount) from Order_n group by order_id having count(cust_id)>1;
+Empty set (0.00 sec)
+
+mysql> select cust_id, max(purchase_amount) from Order_n  having count(cust_id)>1;
++---------+----------------------+
+| cust_id | max(purchase_amount) |
++---------+----------------------+
+| C-1     |                17000 |
++---------+----------------------+
+1 row in set (0.01 sec)
+
+mysql> select cust_id, max(purchase_amount) from Order_n group by cust_id  having count(cust_id)>1;
++---------+----------------------+
+| cust_id | max(purchase_amount) |
++---------+----------------------+
+| C-1     |                 3000 |
+| C-2     |                17000 |
++---------+----------------------+
+2 rows in set (0.09 sec)
+
+mysql>

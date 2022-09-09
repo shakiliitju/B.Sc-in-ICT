@@ -1,0 +1,122 @@
+
+
+mysql> create database Lab1;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use Lab1;
+Database changed
+
+mysql> create table student(stud_id int(5), Name varchar(20), Address varchar(30), Department varchar(20));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> describe student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| stud_id    | int(5)      | YES  |     | NULL    |       |
+| Name       | varchar(20) | YES  |     | NULL    |       |
+| Address    | varchar(30) | YES  |     | NULL    |       |
+| Department | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into student values(101, "Shakil", "JU", "IIT");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(102, "Nahid", "JU", "IIT");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(103, "Rahim", "JU", "IIT");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(104, "Karim", "JU", "IIT");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++---------+--------+---------+------------+
+| stud_id | Name   | Address | Department |
++---------+--------+---------+------------+
+|     101 | Shakil | JU      | IIT        |
+|     102 | Nahid  | JU      | IIT        |
+|     103 | Rahim  | JU      | IIT        |
+|     104 | Karim  | JU      | IIT        |
++---------+--------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_lab1 |
++----------------+
+| student        |
++----------------+
+1 row in set (0.00 sec)
+
+
+mysql> select * from student where address="JU";
++---------+--------+---------+------------+
+| stud_id | Name   | Address | Department |
++---------+--------+---------+------------+
+|     101 | Shakil | JU      | IIT        |
+|     102 | Nahid  | JU      | IIT        |
+|     103 | Rahim  | JU      | IIT        |
+|     104 | Karim  | JU      | IIT        |
++---------+--------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select Name,Department from student where address="JU";
++--------+------------+
+| Name   | Department |
++--------+------------+
+| Shakil | IIT        |
+| Nahid  | IIT        |
+| Rahim  | IIT        |
+| Karim  | IIT        |
++--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select Name,stud_id from student;
++--------+---------+
+| Name   | stud_id |
++--------+---------+
+| Shakil |     101 |
+| Nahid  |     102 |
+| Rahim  |     103 |
+| Karim  |     104 |
++--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select Name,Department from student where address="JU" and Department;
+Empty set, 4 warnings (0.03 sec)
+
+mysql> select * from student where address="JU" and Department;
+Empty set, 4 warnings (0.00 sec)
+
+mysql> select * from student where address="JU" and Department="IIT";
++---------+--------+---------+------------+
+| stud_id | Name   | Address | Department |
++---------+--------+---------+------------+
+|     101 | Shakil | JU      | IIT        |
+|     102 | Nahid  | JU      | IIT        |
+|     103 | Rahim  | JU      | IIT        |
+|     104 | Karim  | JU      | IIT        |
++---------+--------+---------+------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from student where address="JU" and Department!="IIT";
+Empty set (0.00 sec)
+
+mysql> delete from student where stud_id=104;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from student;
++---------+--------+---------+------------+
+| stud_id | Name   | Address | Department |
++---------+--------+---------+------------+
+|     101 | Shakil | JU      | IIT        |
+|     102 | Nahid  | JU      | IIT        |
+|     103 | Rahim  | JU      | IIT        |
++---------+--------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
