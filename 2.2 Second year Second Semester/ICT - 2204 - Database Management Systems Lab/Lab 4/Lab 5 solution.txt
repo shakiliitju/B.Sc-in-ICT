@@ -1,0 +1,19 @@
+
+
+1. select cust_name,cust_country from  customer_shakil_2023 inner join order_shakil_2023 on customer_shakil_2023.cust_id=order_shakil_2023.cust_id group by order_shakil_2023.cust_id having count(order_id)>1;
+
+
+
+2. select order_id,Purcharse_amount,cust_name,cust_country from order_shakil_2023 inner join customer_shakil_2023 on order_shakil_2023.cust_id=customer_shakil_2023.cust_id group by customer_shakil_2023.cust_id having Purcharse_amount>=2000 && Purcharse_amount<=5000;
+
+
+3. select Order_shakil_2023.Order_ID,Order_date,Shipper_name,Cust_name from ((Order_shakil_2023 inner join Customer_shakil_2023 on Order_shakil_2023.Cust_ID=Customer_shakil_2023.Cust_ID) inner join Shippers_shakil_2023 on Order_shakil_2023.Order_ID=Shippers_shakil_2023.Order_ID) where Shippers_shakil_2023.Shipper_country=Customer_shakil_2023.Cust_country;
+
+
+4. 
+
+
+
+5. select Order_shakil_2023.Order_ID from Order_shakil_2023 left join Shippers_shakil_2023 on Order_shakil_2023.Order_ID=Shippers_shakil_2023.Order_ID where Shipper_ID is NULL;
+
+
