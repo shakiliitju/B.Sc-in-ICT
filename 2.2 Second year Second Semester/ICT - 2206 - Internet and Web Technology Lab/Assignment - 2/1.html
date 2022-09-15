@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-2 (1)</title>
+    
+    </script>
+</head>
+<body>
+    <script>
+        // JavaScript program to find the most frequent element
+        //in an array
+        
+            function mostFrequent(arr, n)
+            {
+                
+                // Sort the array
+                arr.sort();
+                
+                // find the max frequency using linear
+                // traversal
+                let max_count = 1, res = arr[0];
+                let curr_count = 1;
+                
+                for (let i = 1; i < n; i++)
+                {
+                    if (arr[i] == arr[i - 1])
+                        curr_count++;
+                    else
+                    {
+                        if (curr_count > max_count)
+                        {
+                            max_count = curr_count;
+                            res = arr[i - 1];
+                        }
+                        curr_count = 1;
+                    }
+                }
+            
+                // If last element is most frequent
+                if (curr_count > max_count)
+                {
+                    max_count = curr_count;
+                    res = arr[n - 1];
+                }
+                return res;
+            }
+            
+        // Driver Code
+        
+                let arr = [7,2,9,1,6,1,8,3,3,8];
+                let n = arr.length;
+                document.write(mostFrequent(arr,n));
+        
+        // This code is contributed by code_hunt.
+        </script>
+        
+
+</body>
+</html>

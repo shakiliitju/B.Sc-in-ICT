@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-2 (2)</title>
+
+    </script>
+</head>
+<body>
+                <script>
+            // JavaScript Program to shuffle a given array
+
+            // A function to print an array
+            let printArray = (arr, n)=>
+            {
+                ans = '';
+                for (let i = 0; i < n; i++)
+                {
+                    ans += arr[i] + " ";
+                }
+                console.log(ans);
+                document.write(ans);
+            }
+
+            // A function to generate a random
+            // permutation of arr
+            let randomize = (arr, n) =>
+            {
+
+                // Start from the last element and swap
+                // one by one. We don't need to run for
+                // the first element that's why i > 0
+                for (let i = n - 1; i > 0; i--)
+                {
+                
+                    // Pick a random index from 0 to i inclusive
+                    let j = Math.floor(Math.random() * (i + 1));
+
+                    // Swap arr[i] with the element
+                    // at random index
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+            }
+
+            // Driver Code
+            let arr = [7,2,9,1,6,1,8,3,3,8];
+            let n = arr.length;
+            randomize (arr, n);
+            printArray(arr, n);
+
+            // This code is contributed by rohitsingh07052.
+            </script>
+
+                    
+
+</body>
+</html>
