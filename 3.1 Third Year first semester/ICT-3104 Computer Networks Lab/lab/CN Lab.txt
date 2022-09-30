@@ -1,0 +1,9 @@
+
+
+mail: shaoniitju08@gmail.com
+password: Netlab2022
+
+
+ip route 192.168.2.0 255.255.255.0 192.168.3.2
+exit
+copy running-config startup-config

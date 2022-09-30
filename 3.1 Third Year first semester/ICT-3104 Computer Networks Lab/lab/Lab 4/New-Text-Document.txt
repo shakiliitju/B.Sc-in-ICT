@@ -1,0 +1,11 @@
+
+
+HostName : mukit
+Password : password
+
+Pc0: 192.168.1.2
+Pc1: 192.168.1.1
+Pc2: 192.168.2.2
+
+Fastethernet 0/0: 192.168.1.3
+Fastethernet 1/0: 192.168.2.1
