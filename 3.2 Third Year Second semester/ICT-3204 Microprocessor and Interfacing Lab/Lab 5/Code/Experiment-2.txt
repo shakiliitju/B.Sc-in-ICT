@@ -1,0 +1,68 @@
+include 'emu8086.inc'
+
+data segment
+    term db 0
+    diff db 0
+data ends
+
+code segment
+    assume cs:code,ds:data
+start:
+    mov ax,data
+    mov ds,ax
+    
+    print 'Enter First Term: '
+    
+    mov ah,01h
+    int 21h
+    sub al,30h
+    mov term,al
+    
+    printn ''
+    print 'Enter Common Difference: '
+    
+    mov ah,01h
+    int 21h
+    sub al,30h
+    mov diff,al
+    
+    xor bl,bl
+    xor al,al
+
+calculate:
+    mov al,term
+    add bl,al
+    
+    add al,diff
+    add bl,al
+    
+    add al,diff
+    add bl,al
+    
+    add al,diff
+    add bl,al
+    
+display:
+    printn ''
+    print 'Sum: '
+    
+    mov cl,bl
+    and bl,0F0h
+    ror bl,4
+    add bl,30h
+    mov dl,bl
+    mov ah,02h
+    int 21h
+    
+    mov bl,cl
+    and bl,0Fh
+    add bl,30h
+    mov dl,bl
+    mov ah,02h
+    int 21h
+    
+    mov ah,4ch
+    int 21h
+    
+    code ends
+end start
