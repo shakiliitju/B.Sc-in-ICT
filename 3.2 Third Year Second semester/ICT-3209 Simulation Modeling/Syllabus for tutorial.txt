@@ -1,0 +1,63 @@
+Syllabus for tutorial
+What do you mean by system, state of a system and
+simulation? Give examples to explain these terms.
+
+
+Why does Single-server queue is called
+Discrete-Event Simulation?
+
+
+What are the factors that are considered in a
+Single-server queue?
+
+
+Explain the mechanisms of Next-event time advance
+and Fixed-increment time advance in simulation.
+
+
+Math
+
+
+ 
+
+
+Probability
+and Distribution:
+
+
+Why does probability distribution associated with
+simulation? Give examples of the use of discrete and continuous probability
+distribution in simulation.
+
+
+Conditional probability
+
+
+Define Negative Binomial Distribution and geometric
+distribution. Write the application of these distribution in simulation.
+
+
+What are the application of Q-Q and P-P plot?
+Construct a Q-Q plots for the inter arrival time of customers 10, 12,18 22 in
+seconds.
+
+
+Regression:
+
+
+Assumptions
+
+
+What is regression analysis and how do you should
+select dependent and independent variables?
+
+
+ 
+
+
+Inference
+
+
+Chi-square Goodness-of-fit Test is widely use after
+a simulation performed, what are the process of conduction this test and why do
+researchers use this test?
