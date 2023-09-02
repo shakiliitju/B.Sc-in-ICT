@@ -1,0 +1,11 @@
+woman(mia).
+woman(tasnia).
+man(rajjak).
+man(masud).
+learn.
+play.
+sleep.
+eat.
+bou(nai).
+bia.
+nahiderbou(nai).
