@@ -1,0 +1,11 @@
+To be covered
+Introduction
+Basic Operations on signals
+Basic System Properties
+Time domain analysis of CT and DT systems
+Fourier series analsysis of CTS and DTS
+Fourier Transform analsysis of CTS and DTS
+Laplace Transform
+Z transform
+Sampling 
+Random Signal and System
