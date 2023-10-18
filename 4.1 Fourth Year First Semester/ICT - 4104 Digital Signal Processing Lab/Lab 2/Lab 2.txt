@@ -1,0 +1,71 @@
+Example 1
+
+% Signal 1 
+x1 = [1 2 3 4 5]; %x1 represents the first signal 
+% Signal 2 
+x2 = [0.5 0.5]; %x2 represents the second signa
+ % Perform convolution 
+y = conv(x1, x2); 
+% Display the result 
+disp(y); 
+
+Example 2
+% Read the image 
+image = imread('your_image.jpg'); % Replace 'your_image.jpg' with the path to your image
+
+% Define the system (filter/kernel)
+system = [1 2 1; 0 0 0; -1 -2 -1]; % Example system (3x3 Sobel filter for edge detection)
+
+% Perform convolution
+output = conv2(image, system, 'same');
+
+% Display the result
+imshow(output, []); % Display the output image
+
+Example 3
+To perform convolution between a voice signal and a filter, you can use the conv function in MATLAB. Here's an example code:
+matlabCopy code
+% Load the voice signal
+[y, Fs] = audioread('your_voice_signal.wav'); % Replace 'your_voice_signal.wav' with the path to your voice signal file
+
+% Define the filter coefficients
+b = [0.5, -0.5]; % Example filter coefficients
+
+% Perform convolution
+output = conv(y, b);
+
+% Plot the original voice signal
+t = (0:length(y)-1) / Fs; % Time vector
+subplot(2,1,1);
+plot(t, y);
+title('Original Voice Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+% Plot the filtered signal
+t_output = (0:length(output)-1) / Fs; % Time vector for the output signal
+subplot(2,1,2);
+plot(t_output, output);
+title('Filtered Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+
+Example 4
+
+% Define the input signal 
+x = [1 2 3 4 5]; 
+% Define the channel response 
+h = [0.5 0.2 0.1]; 
+% Perform convolution 
+y = conv(x, h); % Display the result 
+disp(y); 
+
+The following issues must be discussed
+1. Example 1 and Example 4 must be solved by hand calculation. 
+2. Example 2 and Example 3 Observe the signal before and after filtering
+3. Change the filter coefficients and observe the output. The changes must be discussed in detial.
+
+
+
+
