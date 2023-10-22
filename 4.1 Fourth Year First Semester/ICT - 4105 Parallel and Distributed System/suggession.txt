@@ -1,0 +1,5 @@
+1. slide 3,4,5 (architecture part)-------1 set question
+2. slide 6,7,8,9,10 (process part,,specially RPC)--------1 set question
+3. slide 11,12(parallel)-----------2 set question
+4. slide 13(naming)-----------------1 set question
+5. slide 14,15(syncronization,raplication)-------------1 set question
