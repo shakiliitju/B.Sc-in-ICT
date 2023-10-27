@@ -1,0 +1,5 @@
+1 “FDMA wastes bandwidth”, How? Explain. Do you agree‘’T DMA is a complimentary access technique to FDMA”? If you agree then show your logic.
+
+2 Define Cell Capacity of a TDMA System. Now calculate the capacity and spectral efficiency of a TDMA system using the following parameters: bandwidth efficiency factor ηb= 0.9, bit efficiency (with QPSK)  µ=2, voice activity factor vf =1.0, one-way system bandwidth Bw =12.5 MHz, information bit rate R =16.2 kbps, and frequency reuse factor N = 12.
+
+3 State some gains of Spread Spectrum Multiple Access technique. Whether CDMA is a Direct Sequence Spread Spectrum system or not? Explain
