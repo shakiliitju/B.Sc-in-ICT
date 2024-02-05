@@ -82,3 +82,13 @@ ICT - 4106 - Mobile Application Development Lab <br>
 ICT - 4107 - Wireless Networks <br>
 ICT- 4109  - Human-Computer Interaction <br>
 ICT- 4109  - Research Project Proposal <br>
+
+### Fourth-year Second semester
+ICT - 4201 Digital Image Processing <br>
+ICT - 4202 Digital Image Processing Lab <br>
+ICT - 4203 Computer Graphics and Animation <br>
+ICT - 4231 Object Oriented Software Engineering <br>
+ICT - 4257 Cryptography and Network Security <br>
+ICT - 4261 Machine Learning <br>
+ICT - 4299 Research Project Defence <br>
+ICT - 4200 Viva
