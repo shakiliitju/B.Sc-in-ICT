@@ -1,0 +1,41 @@
+
+create table Order_shakil_2023(Order_ID varchar(10), Cust_ID varchar(5), Order_date date, Purcharse_amount int(10),No_of_item int(10), primary key(Order_ID));
+
+
+insert into Order_shakil_2023 values ("O-1", "C-1", "2018-12-01", 20000, 4),("O-2", "C-1", "2018-12-01", 30000, 3),("O-3", "C-2", "2018-01-23", 17000, 10),("O-4", "C-2", "2018-12-01",5000, 9),("O-5", "C-3", "2018-12-01",5000, 12),("O-6", "C-4", "2018-07-25",4000, 6);
+
+create table customer_shakil_2023(Cust_ID varchar(10), Cust_name varchar(20), Cust_country varchar(15));
+
+insert into customer_shakil_2023 values ("C-1", "Badshah", "India"),("C-2", "Ayesha", "Bangladesh"), ("C-3", "Robert", "England"), ("C-4", "Darwin", "England"), ("C-5", "Danish", "USA"), ("C-6", "Sohel", "Bangladesh");
+
+
+create table shippers_shakil_2023 (Shipper_ID varchar(5), Shipper_name varchar(10), Shipper_country varchar(10), Order_ID varchar(5));
+
+insert into shippers_shakil_2023 values ("S-1", "Amazon", "England", "O-5"),("S-1", "Ocean-12", "India", "O-1"), ("S-2", "Ocean-11", "USA", "O-3"), ("S-3", "Amazon", "England", "O-6");
+
+
+1. select sum(Purcharse_amount) from Order_shakil_2023;
+
+2. select avg(Purcharse_amount) from Order_shakil_2023;
+
+3. select cust_id, sum(No_of_item) from Order_shakil_2023 group by cust_id;
+
+4. select cust_id, count(cust_id) from Order_shakil_2023 group by cust_id;
+
+5. select Order_ID from Order_shakil_2023 where Purcharse_amount > (select avg(Purcharse_amount) from Order_shakil_2023);
+
+6. select max(purcharse_amount) from Order_shakil_2023;
+
+7. select min(purcharse_amount) from Order_shakil_2023;
+
+8. select cust_id, count(order_ID) As "order_number", max(Purcharse_amount) As "Maximum Purcharse" from order_shakil_2023 group by cust_id having count(cust_id)>1;
+
+9. select max(purcharse_amount) from Order_shakil_2023 where order_date = '2018-12-01';
+
+10. select Cust_id, Order_date , max(purcharse_amount) from Order_shakil_2023 group by cust_id,Order_date having max(purchase_amount)>2000;
+
+11. select Cust_country, count(cust_name) from customer_shakil_2023 group by cust_country;
+
+12. select order_date, count(order_id) from order_shakil_2023 group by order_date;
+
+13. select order_ID from Order_shakil_2023 where Purcharse_amount >= 4000;
