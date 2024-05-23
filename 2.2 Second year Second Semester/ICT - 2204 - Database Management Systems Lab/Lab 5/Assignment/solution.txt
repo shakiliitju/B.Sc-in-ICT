@@ -1,0 +1,33 @@
+Function
+
+Ascii
+select cust_name, Ascii(cust_name) from customers_shakil_2023;
+
+Char_Length
+select cust_name, char_length(cust_name) from customers_shakil_2023;
+
+Character_Length
+select cust_name, character_length(cust_name) from customers_shakil_2023;
+
+Concat
+select cust_name, concat(cust_name, "Khan") from customers_shakil_2023;
+
+Concat_ws
+select cust_id, concat_ws(" ", cust_name, cust_country) As Name_Address from customers_shakil_2023;
+
+Field
+select field(3,4,7,5,6,2,3);
+
+Field_in_set
+select field_in_set("Robert", "Badsha,Robert,Darwin,Sohel");
+
+Format
+select format(3.14165321,3);
+
+Insert
+select insert("Shakil Ahmed",7,6,"Hossain");
+
+Instr
+select instr("Shakil Hossain", "Hossain");
+
+

@@ -1,0 +1,21 @@
+
+Function
+
+
+1. char_length
+2. concat
+3. instr
+4. left
+5. lcase
+6. locate
+
+
+1. select cust_name, char_length(cust_name) from customer_shakil_2023;
+
+2. select concat (cust_name,"->TSM") from customer_shakil_2023;
+
+
+Create View
+
+create view viw_product as select cust_name from customer_shakil_2023;
+describe viw_product;
