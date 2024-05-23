@@ -1,0 +1,145 @@
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| lms                |
+| lmsi               |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+6 rows in set (0.08 sec)
+
+mysql> creat database lab5;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'creat database lab5' at line 1
+mysql> create database lab5;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> create table Order_shakil_2023(Order_ID varchar(10), Cust_ID varchar(5), Order_date date, Purcharse_amount int(10),No_of_item int(10), primary key(Order_ID));
+ERROR 1046 (3D000): No database selected
+mysql> use lab5;
+Database changed
+mysql> create table Order_shakil_2023(Order_ID varchar(10), Cust_ID varchar(5), Order_date date, Purcharse_amount int(10),No_of_item int(10), primary key(Order_ID));
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> insert into Order_shakil_2023 values ("O-1", "C-1", "2018-12-01", 20000, 4),("O-2", "C-1", "2018-12-01", 30000, 3),("O-3", "C-2", "2018-01-23", 17000, 10),("O-4", "C-2", "2018-12-01",5000, 9),("O-5", "C-3", "2018-12-01",5000, 12),("O-6", "C-4", "2018-07-25",4000, 6);
+Query OK, 6 rows affected (0.11 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> create table customer_shakil_2023(Cust_ID varchar(10), Cust_name varchar(20), Cust_country varchar(15));
+Query OK, 0 rows affected (0.25 sec)
+
+mysql> insert into customer_shakil_2023 values ("C-1", "Badshah", "India"),("C-2", "Ayesha", "Bangladesh"), ("C-3", "Robert", "England"), ("C-4", "Darwin", "England"), ("C-5", "Danish", "USA"), ("C-6", "Sohel", "Bangladesh");
+Query OK, 6 rows affected (0.05 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> create table shippers_shakil_2023 (Shipper_ID varchar(5), Shipper_name varchar(10), Shipper_country varchar(10), Order_ID varchar(5));
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> insert into shippers_shakil_2023 values ("S-1", "Amazon", "England", "O-5"),("S-1", "Ocean-12", "India", "O-1"), ("S-2", "Ocean-11", "USA", "O-3"), ("S-3", "Amazon", "England", "O-6");
+Query OK, 4 rows affected (0.05 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select *from Order_shakil_2023 join customer_shakil_2023;
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| Order_ID | Cust_ID | Order_date | Purcharse_amount | No_of_item | Cust_ID | Cust_name | Cust_country |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-1     | Badshah   | India        |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-1     | Badshah   | India        |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-1     | Badshah   | India        |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-1     | Badshah   | India        |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-1     | Badshah   | India        |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-1     | Badshah   | India        |
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-2     | Ayesha    | Bangladesh   |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-2     | Ayesha    | Bangladesh   |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-2     | Ayesha    | Bangladesh   |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-2     | Ayesha    | Bangladesh   |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-2     | Ayesha    | Bangladesh   |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-2     | Ayesha    | Bangladesh   |
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-3     | Robert    | England      |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-3     | Robert    | England      |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-3     | Robert    | England      |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-3     | Robert    | England      |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-3     | Robert    | England      |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-3     | Robert    | England      |
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-4     | Darwin    | England      |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-4     | Darwin    | England      |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-4     | Darwin    | England      |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-4     | Darwin    | England      |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-4     | Darwin    | England      |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-4     | Darwin    | England      |
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-5     | Danish    | USA          |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-5     | Danish    | USA          |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-5     | Danish    | USA          |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-5     | Danish    | USA          |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-5     | Danish    | USA          |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-5     | Danish    | USA          |
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-6     | Sohel     | Bangladesh   |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-6     | Sohel     | Bangladesh   |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-6     | Sohel     | Bangladesh   |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-6     | Sohel     | Bangladesh   |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-6     | Sohel     | Bangladesh   |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-6     | Sohel     | Bangladesh   |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+36 rows in set (0.00 sec)
+
+mysql> select *from Order_shakil_2023 join customer_shakil_2023 on order__shakil_2023.cust_id=customer_shakil_2023.cust_id;
+ERROR 1054 (42S22): Unknown column 'order__shakil_2023.cust_id' in 'on clause'
+mysql> select *from Order_shakil_2023 join customer_shakil_2023 on order_shakil_2023.cust_id=customer_shakil_2023.cust_id;
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| Order_ID | Cust_ID | Order_date | Purcharse_amount | No_of_item | Cust_ID | Cust_name | Cust_country |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-1     | Badshah   | India        |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-1     | Badshah   | India        |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-2     | Ayesha    | Bangladesh   |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-2     | Ayesha    | Bangladesh   |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-3     | Robert    | England      |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-4     | Darwin    | England      |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> select *from Order_shakil_2023 left join customer_shakil_2023 on order_shakil_2023.cust_id=customer_shakil_2023.cust_id;
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| Order_ID | Cust_ID | Order_date | Purcharse_amount | No_of_item | Cust_ID | Cust_name | Cust_country |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-1     | Badshah   | India        |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-1     | Badshah   | India        |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-2     | Ayesha    | Bangladesh   |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-2     | Ayesha    | Bangladesh   |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-3     | Robert    | England      |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-4     | Darwin    | England      |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> select *from Order_shakil_2023 right join customer_shakil_2023 on order_shakil_2023.cust_id=customer_shakil_2023.cust_id;
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| Order_ID | Cust_ID | Order_date | Purcharse_amount | No_of_item | Cust_ID | Cust_name | Cust_country |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-1     | Badshah   | India        |
+| O-2      | C-1     | 2018-12-01 |            30000 |          3 | C-1     | Badshah   | India        |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-2     | Ayesha    | Bangladesh   |
+| O-4      | C-2     | 2018-12-01 |             5000 |          9 | C-2     | Ayesha    | Bangladesh   |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-3     | Robert    | England      |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-4     | Darwin    | England      |
+| NULL     | NULL    | NULL       |             NULL |       NULL | C-5     | Danish    | USA          |
+| NULL     | NULL    | NULL       |             NULL |       NULL | C-6     | Sohel     | Bangladesh   |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+
+8 rows in set (0.00 sec)
+
+mysql> select *from Order_shakil_2023 join customer_shakil_2023;
+
+
+mysql> select *from Order_shakil_2023 inner join customer_shakil_2023 on order_shakil_2023.cust_id=customer_shakil_2023.cust_id inner join shippers_shakil_2023 on order_shakil_2023.order_id=shippers_shakil_2023.order_id;
++----------+---------+------------+------------------+------------+---------+-----------+--------------+------------+--------------+-----------------+----------+
+| Order_ID | Cust_ID | Order_date | Purcharse_amount | No_of_item | Cust_ID | Cust_name | Cust_country | Shipper_ID | Shipper_name | Shipper_country | Order_ID |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+------------+--------------+-----------------+----------+
+| O-1      | C-1     | 2018-12-01 |            20000 |          4 | C-1     | Badshah   | India        | S-1        | Ocean-12     | India           | O-1      |
+| O-3      | C-2     | 2018-01-23 |            17000 |         10 | C-2     | Ayesha    | Bangladesh   | S-2        | Ocean-11     | USA             | O-3      |
+| O-5      | C-3     | 2018-12-01 |             5000 |         12 | C-3     | Robert    | England      | S-1        | Amazon       | England         | O-5      |
+| O-6      | C-4     | 2018-07-25 |             4000 |          6 | C-4     | Darwin    | England      | S-3        | Amazon       | England         | O-6      |
++----------+---------+------------+------------------+------------+---------+-----------+--------------+------------+--------------+-----------------+----------+
+4 rows in set (0.00 sec)
+

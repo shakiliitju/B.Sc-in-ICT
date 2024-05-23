@@ -1,0 +1,63 @@
+lab test 1 set 1
+
+
+mysql> select cphone from customer;
+
+
+mysql> select * from (customer left join orders on customer.cid=orders.oid);
+
+
+mysql> select customer.cid, oid from (customer left join orders on customer.cid=orders.oid);
+
+
+mysql> select customer.cid, oid from (customer right join orders on customer.cid=orders.oid);
+
+
+mysql> select customer.cid, oid from (customer left join orders on customer.cid=orders.oid) where orders.oid is null;
+
+
+mysql> select customer.cid, oid from (customer left join orders on customer.cid=orders.cid) where orders.oid is null;
+
+
+mysql> select customer.cid, cname from  (customer inner join orders on customer.cid=orders.cid) where amount = (select max(amount) from orders);
+
+
+mysql> select count(oid) from orders where date = "25.12.2021";
+
+
+
+mysql> select find_in_set("dhaka",cadd) from customer;
+
+
+mysql> select find_in_set("Dhaka",cadd) from customer;
+
+
+mysql> select customer.cid, cname from (customer inner join orders on customer.cid=orders.cid)  group by customer.cid having count(oid)>1;
+
+
+mysql> select * from (customer inner join orders on customer.cid=orders.cid)  group by customer.cid having count(oid)>1;
+
+
+mysql> select customer.cid, cname from (customer inner join orders on customer.cid=orders.cid)  group by customer.cid having count(oid)>1;
+
+
+mysql> insert  into item values("0161","Dairy Cake","Cake", 50,20);
+Query OK, 1 row affected (0.75 sec)
+
+
+mysql> select orders.oid,date,amount from ((item inner join ordr_item on item.iid=ordr_item.iid) inner join orders on orders.oid=ordr_item.oid)where iname="Flour Packet";
+
+
+mysql> select iname,type from ((item inner join ordr_item on item.iid=ordr_item.iid) inner join orders on orders.oid=ordr_item.oid)where iname="Flour Packet";
+
+
+mysql> select iname,type from ((item inner join ordr_item on item.iid=ordr_item.iid) inner join orders on orders.oid=ordr_item.oid)where orders.oid="002";
+
+
+mysql> select ccountry from customer where cname="Noor Hossain";
+
+
+mysql> create view  c_info as  select cname from customer where ccountry=(select ccountry from customer where cname="Noor Hossain");
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> select *from c_info;

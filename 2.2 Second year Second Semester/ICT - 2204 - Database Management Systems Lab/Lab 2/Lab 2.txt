@@ -1,27 +1,10 @@
 
-mysql> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| lab1               |
-| mysql              |
-| performance_schema |
-| shakil             |
-| sys                |
-+--------------------+
-6 rows in set (0.25 sec)
 
-mysql> create database lab2;
-Query OK, 1 row affected (0.11 sec)
 
-mysql> use lab2;
-Database changed
-
-mysql> create table Customer_table (Order_ID varchar(10), Cust_ID varchar(10), Order_date Date, Purchase_amount int, No_item int);
+mysql> create table Order_Shakil_2023(Order_ID varchar(10), Cust_ID varchar(10), Order_date Date, Purcharse_amount int, No_item int);
 Query OK, 0 rows affected (0.42 sec)
 
-mysql> desc Customer_table;
+mysql> desc Order_Shakil_2023;
 +-----------------+-------------+------+-----+---------+-------+
 | Field           | Type        | Null | Key | Default | Extra |
 +-----------------+-------------+------+-----+---------+-------+
@@ -33,27 +16,10 @@ mysql> desc Customer_table;
 +-----------------+-------------+------+-----+---------+-------+
 5 rows in set (0.23 sec)
 
-mysql> insert into Customer_table values ("O-1", "C-1", "2018-12-01", 20000, 4);
-Query OK, 1 row affected (0.10 sec)
 
-mysql> select *from Customer_table;
-+----------+---------+------------+-----------------+---------+
-| Order_ID | Cust_ID | Order_date | Purchase_amount | No_item |
-+----------+---------+------------+-----------------+---------+
-| O-1      | C-1     | 2018-12-01 |           20000 |       4 |
-+----------+---------+------------+-----------------+---------+
-1 row in set (0.00 sec)
 
-mysql> insert into Customer_table values ("O-2", "C-1", "2018-12-01", 30000, 3);
-Query OK, 1 row affected (0.00 sec)
 
-mysql> insert into Customer_table values ("O-3", "C-2", "2018-01-01", 17000, 10);
-Query OK, 1 row affected (0.00 sec)
-
-mysql> insert into Customer_table values ("O-4", "C-2", "2018-01-01",5000, 9);
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select sum(Purchase_amount) from Customer_table;
+mysql> select sum(Purcharse_amount) from Order_Shakil_2023;
 +----------------------+
 | sum(Purchase_amount) |
 +----------------------+
@@ -61,18 +27,13 @@ mysql> select sum(Purchase_amount) from Customer_table;
 +----------------------+
 1 row in set (0.04 sec)
 
-mysql> insert into Customer_table values ("O-5", "C-3", "2018-12-01",5000, 12);
-Query OK, 1 row affected (0.00 sec)
 
-mysql> insert into Customer_table values ("O-6", "C-4", "2018-07-25",4000, 6);
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select *from Customer_table;
+mysql> select *from Order_Shakil_2023;
 +----------+---------+------------+-----------------+---------+
-| Order_ID | Cust_ID | Order_date | Purchase_amount | No_item |
+| Order_ID | Cust_ID | Order_date | Purcharse_amount | No_item |
 +----------+---------+------------+-----------------+---------+
-| O-1      | C-1     | 2018-12-01 |           20000 |       4 |
-| O-2      | C-1     | 2018-12-01 |           30000 |       3 |
+| O-1      | C-1     | 2018-12-01 |            2000 |       4 |
+| O-2      | C-1     | 2018-12-01 |            3000 |       3 |
 | O-3      | C-2     | 2018-01-01 |           17000 |      10 |
 | O-4      | C-2     | 2018-01-01 |            5000 |       9 |
 | O-5      | C-3     | 2018-12-01 |            5000 |      12 |
@@ -80,7 +41,8 @@ mysql> select *from Customer_table;
 +----------+---------+------------+-----------------+---------+
 6 rows in set (0.00 sec)
 
-mysql> select avg(Purchase_amount) from Customer_table;
+
+mysql> select avg(Purcharse_amount) from Order_Shakil_2023;
 +----------------------+
 | avg(Purchase_amount) |
 +----------------------+
@@ -88,7 +50,9 @@ mysql> select avg(Purchase_amount) from Customer_table;
 +----------------------+
 1 row in set (0.00 sec)
 
-mysql> select avg(Purchase_amount) as avg_amount from Customer_table;
+
+
+mysql> select avg(Purcharse_amount) as Avg_amount from Order_Shakil_2023;
 +------------+
 | avg_amount |
 +------------+
@@ -96,11 +60,29 @@ mysql> select avg(Purchase_amount) as avg_amount from Customer_table;
 +------------+
 1 row in set (0.00 sec)
 
-mysql> select Order_ID from Customer_table where Purchase_amount > (select avg(Purchase_amount) from Customer_table);
 
-mysql> select 2018-01-01, count(Order_ID) from Customer_table group by Order_date;
+mysql> select Order_ID from Order_Shakil_2023 where Purcharse_amount > (select avg(Purcharse_amount) from Order_Shakil_2023);
++----------+
+| Order_ID |
++----------+
+| O-3      |
++----------+
+1 row in set (0.02 sec)
 
-mysql> select Order_date, count(Order_ID) from Customer_table group by Order_date;
+
+
+mysql> select 2018-01-01, count(Order_ID) from Order_Shakil_2023 group by Order_date;
++------------+-----------------+
+| 2018-01-01 | count(Order_ID) |
++------------+-----------------+
+|       2016 |               1 |
+|       2016 |               1 |
+|       2016 |               4 |
++------------+-----------------+
+3 rows in set (0.03 sec)
+
+
+mysql> select Order_date, count(Order_ID) from Order_Shakil_2023 group by Order_date;
 +------------+-----------------+
 | Order_date | count(Order_ID) |
 +------------+-----------------+
@@ -110,7 +92,8 @@ mysql> select Order_date, count(Order_ID) from Customer_table group by Order_dat
 +------------+-----------------+
 3 rows in set (0.80 sec)
 
-mysql> select Order_ID from Customer_table group by Order_date having sum(Purchase_amount) > 3000;
+
+mysql> select Order_ID from Order_Shakil_2023 group by Order_date having sum(Purcharse_amount) > 3000;
 +----------+
 | Order_ID |
 +----------+
@@ -120,4 +103,3 @@ mysql> select Order_ID from Customer_table group by Order_date having sum(Purcha
 +----------+
 3 rows in set (0.03 sec)
 
-mysql>
