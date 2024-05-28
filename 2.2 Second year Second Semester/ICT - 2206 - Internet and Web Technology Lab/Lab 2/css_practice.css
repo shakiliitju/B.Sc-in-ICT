@@ -1,0 +1,40 @@
+/*css element selector*/
+body {
+  background-color: lightblue;
+}
+
+h1.center {
+  text-align: center;
+  color: green;
+}
+
+/*css id selector*/
+#para1 {
+  text-align: center;
+  color: red;
+}
+/*css class selector*/
+.center_para {
+  text-align: center;
+  color: yellow;
+}
+
+div {
+  background-color: green;
+}
+
+div.first {
+  opacity: 0.1;
+}
+
+div.second {
+  opacity: 0.3;
+}
+
+div.third {
+  opacity: 0.6;
+}
+
+.b-image {
+  background-image: url("b-image.jfif");
+}

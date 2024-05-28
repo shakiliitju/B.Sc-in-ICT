@@ -1,0 +1,26 @@
+body {
+    background-color: lightblue;
+  }
+  
+  h1 {
+    color: #111;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  h2 {
+    color: #111;
+    text-align: center;
+  }
+  
+  h3 {
+    color: #111;
+    text-align: center;
+    text-decoration: underline;
+  }
+  
+div{
+
+    color: #111;
+    text-align: center;
+}
