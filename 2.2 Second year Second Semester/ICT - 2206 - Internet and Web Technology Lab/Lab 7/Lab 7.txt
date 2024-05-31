@@ -1,0 +1,42 @@
+new Date;
+Wed Dec 22 2021 10:36:43 GMT+0600 (Bangladesh Standard Time)
+
+date;
+Wed Dec 22 2021 10:37:28 GMT+0600 (Bangladesh Standard Time)
+
+date.getDate;
+ƒ getDate() { [native code] }
+
+date.getDate();
+22
+
+date.getFullYear();
+2021
+
+date.getTime();
+1640147848345
+
+date.getDate;
+ƒ getDate() { [native code] }
+
+date.getDate();
+22
+
+date.getDay();
+3
+
+date.getFullYear()-1999;
+22
+
+date.getMonth();
+11
+
+date.getYear() - 1999;
+-1878
+
+date.getYear()-1999;
+-1878
+
+new Date('1 1 2021');
+Fri Jan 01 2021 00:00:00 GMT+0600 (Bangladesh Standard Time)
+
